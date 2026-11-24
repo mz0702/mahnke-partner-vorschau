@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de" class="wait">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Website-Vorschau</title>
+<style>
+  * { box-sizing: border-box }
+  html.wait main { visibility: hidden }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f4efe7; color: #1f1c19;
+         font: 18px/1.45 "Cormorant", Garamond, "Times New Roman", serif }
+  main { width: min(360px, 88vw) }
+  h1 { font: 500 13px/1 "Helvetica Neue", Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 18px }
+  p { margin: 0 0 22px }
+  label { display: block; font: 13px "Helvetica Neue", Arial, sans-serif; margin-bottom: 6px }
+  input, button { font: inherit; width: 100%; padding: 11px 12px; border: 1px solid #1f1c19; border-radius: 0; background: transparent; color: inherit }
+  button { margin-top: 10px; background: #1f1c19; color: #f4efe7; cursor: pointer }
+  input:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid #4a4640; outline-offset: 2px }
+  #err { min-height: 1.45em; margin: 10px 0 0; color: #8a2b1d; font-size: 15px }
+  footer { position: fixed; bottom: 18px; left: 0; right: 0; text-align: center; font: 13px "Helvetica Neue", Arial, sans-serif }
+  footer a { color: inherit; margin: 0 10px }
+</style>
+</head>
+<body>
+<main>
+  <h1>Vorschau</h1>
+  <p>Diese Website ist noch nicht öffentlich. Bitte geben Sie das Passwort ein.</p>
+  <form id="f">
+    <label for="pw">Passwort</label>
+    <input id="pw" type="password" autocomplete="current-password" required autofocus>
+    <button>Öffnen</button>
+    <p id="err" role="alert"></p>
+  </form>
+</main>
+<footer><a href="https://zivion.de/impressum">Impressum</a><a href="https://zivion.de/datenschutz">Datenschutz</a></footer>
+<script>
+const P = {"s":"IZu9itAjQWN4JtS+tCN/tA==","i":"lX5RzhARgynHc/Kb","c":"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","n":600000}, S = "vorschau-key";
+const bin = (s) => Uint8Array.from(atob(s), (ch) => ch.charCodeAt(0));
+async function show(raw) {
+  const k = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
+  const html = new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: bin(P.i) }, k, bin(P.c)));
+  localStorage.setItem(S, P.s + ":" + btoa(String.fromCharCode(...raw)));
+  document.open(); document.write(html); document.close();
+}
+// erst nach "load": solange die Passwortseite noch parst, würde document.write anhängen statt ersetzen
+addEventListener("load", async () => {
+  const [salt, k] = (localStorage.getItem(S) || "").split(":");
+  if (salt === P.s) { try { return await show(bin(k)); } catch { localStorage.removeItem(S); } }
+  document.documentElement.classList.remove("wait");
+});
+document.getElementById("f").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const err = document.getElementById("err");
+  err.textContent = "Wird geprüft …";
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(document.getElementById("pw").value), "PBKDF2", false, ["deriveBits"]);
+  const raw = new Uint8Array(await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: bin(P.s), iterations: P.n }, base, 256));
+  try { await show(raw); } catch { err.textContent = "Falsches Passwort."; }
+});
+</script>
+</body>
+</html>
